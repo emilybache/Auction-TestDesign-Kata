@@ -13,7 +13,7 @@ public class AuctionMessageTranslator {
     public void processMessage(String message) {
 
         if (message.contains("CLOSE")) {
-            // bug: should be auctionEventListener::auctionClosed
+            // bug: should be listener.auctionClosed()
             listener.auctionFailed();
         } else if (message.contains("PRICE")) {
             var data = new HashMap<String, String>();
