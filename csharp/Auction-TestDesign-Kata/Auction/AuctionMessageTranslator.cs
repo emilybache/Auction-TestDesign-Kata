@@ -15,7 +15,7 @@ public class AuctionMessageTranslator
             // bug: should notify listener
         } else if (message.Contains("PRICE")) {
             var data = new Dictionary<string, string>();
-            foreach (var element in message.Split(";"))
+            foreach (var element in message.Split(";", StringSplitOptions.RemoveEmptyEntries))
             {
                 var pair = element.Split(":");
                 data[pair[0].Trim()] = pair[1].Trim();
