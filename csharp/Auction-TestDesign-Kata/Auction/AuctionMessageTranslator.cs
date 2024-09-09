@@ -1,15 +1,10 @@
 ﻿namespace Auction;
 
-public class AuctionMessageTranslator
+public class AuctionMessageTranslator(AuctionEventListener listener)
 {
-    private readonly AuctionEventListener listener;
+    private readonly AuctionEventListener _listener = listener;
 
-    public AuctionMessageTranslator(AuctionEventListener listener)
-    {
-        this.listener = listener;
-    }
-
-    public void processMessage(string message)
+    public void ProcessMessage(string message)
     {
         if (message.Contains("CLOSE"))
         {
