@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test-Auction", "Test-Auction\Test-Auction.csproj", "{A52F0FA8-7F16-4600-B297-E27D8EE6D72C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auction", "Auction\Auction.csproj", "{7C1E626C-3A7F-4586-80FB-34398F2A5432}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A52F0FA8-7F16-4600-B297-E27D8EE6D72C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A52F0FA8-7F16-4600-B297-E27D8EE6D72C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A52F0FA8-7F16-4600-B297-E27D8EE6D72C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A52F0FA8-7F16-4600-B297-E27D8EE6D72C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C1E626C-3A7F-4586-80FB-34398F2A5432}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C1E626C-3A7F-4586-80FB-34398F2A5432}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C1E626C-3A7F-4586-80FB-34398F2A5432}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C1E626C-3A7F-4586-80FB-34398F2A5432}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
