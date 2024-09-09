@@ -3,14 +3,20 @@ class AuctionEventListener:
     # TODO: add methods here
     pass
 
+    def auction_closed(self):
+        pass
+
+    def current_price(self, price):
+        pass
+
+
 class AuctionMessageTranslator:
     def __init__(self, listener: AuctionEventListener):
         self.listener = listener
 
     def process_message(self, message: str):
         if "CLOSE" in message:
-            pass
-            # bug: should notify listener
+            self.listener.auction_closed()
         elif "PRICE" in message:
             data = {}
             for element in message.split(";"):
@@ -23,7 +29,7 @@ class AuctionMessageTranslator:
             increment = int(data["Increment"])
             bidder = data["Bidder"]
 
-            # bug: should notify listener
+            self.listener.current_price(current_price)
         else:
             # bug: should notify listener
             pass
