@@ -7,8 +7,8 @@ public class AuctionMessageTranslatorTest
     {
         var message = "SOLVersion: 1.1; Event: CLOSE;";
         // TODO: write a test for this message translation
-    }    
-    
+    }
+
     [Fact]
     public void NotifiesBidDetailsWhenPriceMessageReceived()
     {
