@@ -2,5 +2,7 @@ namespace Auction;
 
 public interface AuctionEventListener
 {
-    // TODO: add methods here
+    void AuctionClosed();
+    void CurrentPrice(int price);
+    void AuctionFailed();
 }
