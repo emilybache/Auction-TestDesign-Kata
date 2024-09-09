@@ -2,8 +2,6 @@
 
 public class AuctionMessageTranslator(AuctionEventListener listener)
 {
-    private readonly AuctionEventListener _listener = listener;
-
     public void ProcessMessage(string message)
     {
         if (message.Contains("CLOSE"))
