@@ -5,7 +5,7 @@ There are bugs in the code, clearly marked. Write tests that expose the bugs.
 
 Next Steps
 ----------
-Write tests for a new message type: "CLOSE_NO_SALE" which tells you the reserve price on the item was not met. The listener should be notified both that the auction closed, but also the reserve price. Sample message:
+Write tests for a new message similar to "CLOSE", which additionally tells you the reserve price on the item was not met, so it was not sold. The listener should be notified both that the auction closed, but also the reserve price. Sample message:
 
 	SOLVersion: 1.1; Event: CLOSE; ReservePrice: 200;
 
