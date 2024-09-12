@@ -1,6 +1,6 @@
 namespace Auction;
 
-public interface AuctionEventListener
+public interface IAuctionEventListener
 {
     // TODO: add methods here
 }

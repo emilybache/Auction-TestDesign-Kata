@@ -1,6 +1,6 @@
 ﻿namespace Auction;
 
-public class AuctionMessageTranslator(AuctionEventListener listener)
+public class AuctionMessageTranslator(IAuctionEventListener listener)
 {
     public void ProcessMessage(string message)
     {
@@ -10,13 +10,8 @@ public class AuctionMessageTranslator(AuctionEventListener listener)
         }
         else if (message.Contains("PRICE"))
         {
-            var data = new Dictionary<string, string>();
-            foreach (var element in message.Split(";", StringSplitOptions.RemoveEmptyEntries))
-            {
-                var pair = element.Split(":");
-                data[pair[0].Trim()] = pair[1].Trim();
-            }
-
+            var data = ParseMessage(message);
+            
             var currentPrice = int.Parse(data["CurrentPrice"]);
             var increment = int.Parse(data["Increment"]);
             var bidder = data["Bidder"];
@@ -27,5 +22,17 @@ public class AuctionMessageTranslator(AuctionEventListener listener)
         {
             // bug: should notify listener
         }
+    }
+
+    private static Dictionary<string, string> ParseMessage(string message)
+    {
+        var data = new Dictionary<string, string>();
+        foreach (var element in message.Split(";", StringSplitOptions.RemoveEmptyEntries))
+        {
+            var pair = element.Split(":");
+            data[pair[0].Trim()] = pair[1].Trim();
+        }
+
+        return data;
     }
 }
