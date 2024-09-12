@@ -1,33 +1,39 @@
 ﻿namespace Auction;
 
-public class AuctionMessageTranslator
+public class AuctionMessageTranslator(IAuctionEventListener listener)
 {
-    private readonly AuctionEventListener listener;
-
-    public AuctionMessageTranslator(AuctionEventListener listener)
+    public void ProcessMessage(string message)
     {
-        this.listener = listener;
-    }
-    
-    public void processMessage(string message) {
-
-        if (message.Contains("CLOSE")) {
+        if (message.Contains("CLOSE"))
+        {
             listener.AuctionClosed();
-        } else if (message.Contains("PRICE")) {
-            var data = new Dictionary<string, string>();
-            foreach (var element in message.Split(";", StringSplitOptions.RemoveEmptyEntries))
-            {
-                var pair = element.Split(":");
-                data[pair[0].Trim()] = pair[1].Trim();
-            }
-            
+        }
+        else if (message.Contains("PRICE"))
+        {
+            var data = ParseMessage(message);
+
+
             var currentPrice = int.Parse(data["CurrentPrice"]);
             var increment = int.Parse(data["Increment"]);
             var bidder = data["Bidder"];
 
             listener.CurrentPrice(currentPrice);
-        } else {
+        }
+        else
+        {
             listener.AuctionFailed();
         }
+    }
+
+    private static Dictionary<string, string> ParseMessage(string message)
+    {
+        var data = new Dictionary<string, string>();
+        foreach (var element in message.Split(";", StringSplitOptions.RemoveEmptyEntries))
+        {
+            var pair = element.Split(":");
+            data[pair[0].Trim()] = pair[1].Trim();
+        }
+
+        return data;
     }
 }

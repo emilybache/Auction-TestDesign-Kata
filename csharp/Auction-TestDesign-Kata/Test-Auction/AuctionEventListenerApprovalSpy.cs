@@ -2,7 +2,7 @@ using Auction;
 
 namespace Test_Auction_TestDesign_Kata;
 
-public class AuctionEventListenerApprovalSpy : AuctionEventListener
+public class AuctionEventListenerApprovalSpy : IAuctionEventListener
 {
     private string log = "";
 

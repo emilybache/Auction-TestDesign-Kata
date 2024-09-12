@@ -14,7 +14,7 @@ public class AuctionMessageTranslatorApprovalTest
         var listener = new AuctionEventListenerApprovalSpy();
         var translator = new AuctionMessageTranslator(listener);
 
-        translator.processMessage(message);
+        translator.ProcessMessage(message);
 
         return Verifier.Verify(listener.ToString());
     }    
@@ -26,7 +26,7 @@ public class AuctionMessageTranslatorApprovalTest
         var listener = new AuctionEventListenerApprovalSpy();
         var translator = new AuctionMessageTranslator(listener);
 
-        translator.processMessage(message);
+        translator.ProcessMessage(message);
 
         return Verifier.Verify(listener.ToString());
     }

@@ -11,7 +11,7 @@ public class AuctionMessageTranslatorMockTest
         var mockListener = new AuctionEventListenerMock("auctionClosed");
         var translator = new AuctionMessageTranslator(mockListener);
 
-        translator.processMessage(message);
+        translator.ProcessMessage(message);
 
         Assert.Equal(mockListener.expectedCall, mockListener.actualCall);
     }    
@@ -23,7 +23,7 @@ public class AuctionMessageTranslatorMockTest
         var mockListener = new AuctionEventListenerMock("currentPrice");
         var translator = new AuctionMessageTranslator(mockListener);
 
-        translator.processMessage(message);
+        translator.ProcessMessage(message);
 
         Assert.Equal(mockListener.expectedCall, mockListener.actualCall);
     }

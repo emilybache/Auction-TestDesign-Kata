@@ -2,7 +2,7 @@ using Auction;
 
 namespace Test_Auction_TestDesign_Kata;
 
-public class AuctionEventListenerMock : AuctionEventListener
+public class AuctionEventListenerMock : IAuctionEventListener
 {
     public string expectedCall;
     public string actualCall = "";

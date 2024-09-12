@@ -1,6 +1,6 @@
 namespace Auction;
 
-public interface AuctionEventListener
+public interface IAuctionEventListener
 {
     void AuctionClosed();
     void CurrentPrice(int price);
