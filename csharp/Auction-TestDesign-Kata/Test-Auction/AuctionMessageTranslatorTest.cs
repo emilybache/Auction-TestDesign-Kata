@@ -1,3 +1,5 @@
+using Auction;
+
 namespace Test_Auction_TestDesign_Kata;
 
 public class AuctionMessageTranslatorTest
