@@ -10,7 +10,7 @@ public class AuctionMessageTranslator(IAuctionEventListener listener)
         }
         else if (message.Contains("PRICE"))
         {
-            var data = ParseMessage(message);
+            var data = ParseMessageData(message);
             
             var currentPrice = int.Parse(data["CurrentPrice"]);
             var increment = int.Parse(data["Increment"]);
@@ -24,7 +24,7 @@ public class AuctionMessageTranslator(IAuctionEventListener listener)
         }
     }
 
-    private static Dictionary<string, string> ParseMessage(string message)
+    private static Dictionary<string, string> ParseMessageData(string message)
     {
         var data = new Dictionary<string, string>();
         foreach (var element in message.Split(";", StringSplitOptions.RemoveEmptyEntries))
