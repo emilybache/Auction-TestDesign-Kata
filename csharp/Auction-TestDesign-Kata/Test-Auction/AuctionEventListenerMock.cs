@@ -6,15 +6,22 @@ public class AuctionEventListenerMock : IAuctionEventListener
 {
     public string expectedCall;
     public string actualCall = "";
-
-    public AuctionEventListenerMock(string expectedCall)
+    private int expectedPrice;
+    
+    public void ExpectCall(string expectedCall)
     {
         this.expectedCall = expectedCall;
+    }
+    
+    public void ExpectPrice(int price)
+    {
+        ExpectCall("CurrentPrice");
+        this.expectedPrice = price;
     }
 
     public void AuctionClosed()
     {
-        var thisCall = "auctionClosed";
+        var thisCall = "AuctionClosed";
         if (thisCall != expectedCall)
             throw new Exception("expected call: " + expectedCall + " but instead received call to " + thisCall);
         actualCall = thisCall;
@@ -22,10 +29,13 @@ public class AuctionEventListenerMock : IAuctionEventListener
 
     public void CurrentPrice(int price)
     {
-        var thisCall = "currentPrice";
+        var thisCall = "CurrentPrice";
         if (thisCall != expectedCall) {
             throw new Exception("expected call: " + expectedCall + " but instead received call to " + thisCall);
         }
+
+        if (expectedPrice != price)
+            throw new Exception("expected price: " + expectedPrice + " but instead received " + price);
         actualCall = thisCall;
     }
 
@@ -36,5 +46,11 @@ public class AuctionEventListenerMock : IAuctionEventListener
             throw new Exception("expected call: " + expectedCall + " but instead received call to " + thisCall);
         }
         actualCall = thisCall;
+    }
+
+    public void CheckExpectations()
+    {
+        if (expectedCall != actualCall)
+            throw new Exception("Expectations not met. Expected call " + expectedCall + ", but received " + actualCall);
     }
 }

@@ -17,11 +17,11 @@ public class AuctionMessageTranslator(IAuctionEventListener listener)
             var increment = int.Parse(data["Increment"]);
             var bidder = data["Bidder"];
 
-            listener.CurrentPrice(currentPrice);
+           listener.CurrentPrice(currentPrice);
         }
         else
         {
-            listener.AuctionFailed();
+           listener.AuctionFailed();
         }
     }
 
