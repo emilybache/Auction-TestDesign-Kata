@@ -18,12 +18,7 @@ class AuctionMessageTranslator:
         if "CLOSE" in message:
             self.listener.auction_closed()
         elif "PRICE" in message:
-            data = {}
-            for element in message.split(";"):
-                if not element:
-                    continue
-                pair = element.split(":")
-                data[pair[0].strip()]  = pair[1].strip()
+            data = self.parse_message_data(message)
 
             current_price = int(data["CurrentPrice"])
             increment = int(data["Increment"])
@@ -33,4 +28,13 @@ class AuctionMessageTranslator:
         else:
             # bug: should notify listener
             pass
+
+    def parse_message_data(self, message):
+        data = {}
+        for element in message.split(";"):
+            if not element:
+                continue
+            pair = element.split(":")
+            data[pair[0].strip()] = pair[1].strip()
+        return data
 
