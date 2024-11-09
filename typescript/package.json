@@ -1,0 +1,12 @@
+{
+  "name": "auction-test-design-kata",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Emily Bache (Kata) and Ilyas Landikov (TypeScript version)",
+  "license": "MIT",
+  "description": "Inspired by the example in the book \"Growing Object Oriented Software, Guided by Tests\" by Steve Freeman and Nat Pryce"
+}
