@@ -1,4 +1,4 @@
-import {AuctionEventListener} from "./AuctionEventListener";
+import { AuctionEventListener } from './AuctionEventListener';
 
 export class AuctionMessageTranslator {
     private readonly listener: AuctionEventListener;
@@ -20,9 +20,9 @@ export class AuctionMessageTranslator {
                     data[pair[0].trim()] = pair[1].trim();
                 });
 
-            const currentPrice = parseInt(data["CurrentPrice"]);
-            const increment = parseInt(data["Increment"]);
-            const bidder = data["Bidder"];
+            const currentPrice = parseInt(data['CurrentPrice']);
+            const increment = parseInt(data['Increment']);
+            const bidder = data['Bidder'];
 
             // bug: should notify listener
         } else {
