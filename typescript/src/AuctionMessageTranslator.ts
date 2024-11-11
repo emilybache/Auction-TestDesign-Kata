@@ -9,7 +9,7 @@ export class AuctionMessageTranslator {
 
     public processMessage(message: string) {
         if (message.includes('CLOSE')) {
-            this.listener.auctionClosed();
+            // bug: should notify listener
         } else if (message.includes('PRICE')) {
             const data: { [key: string]: string } = {};
             message
