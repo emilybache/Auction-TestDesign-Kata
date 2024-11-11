@@ -1,0 +1,20 @@
+{
+  "name": "auction-test-design-kata",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run prettify && jest",
+    "prettify": "prettier --write 'src/**/*.ts' 'tests/**/*.ts'"
+  },
+  "keywords": [],
+  "author": "Emily Bache (Kata) and Ilyas Landikov (TypeScript version)",
+  "license": "MIT",
+  "description": "Inspired by the example in the book \"Growing Object Oriented Software, Guided by Tests\" by Steve Freeman and Nat Pryce",
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "prettier": "^3.3.3",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.6.3"
+  }
+}
