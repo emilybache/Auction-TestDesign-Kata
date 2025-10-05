@@ -1,5 +1,7 @@
 package org.sammancoaching
 
 interface AuctionEventListener {
-    // TODO: Add methods here
+    fun auctionClosed()
+    fun currentPrice(price: Int)
+    fun auctionFailed()
 }
