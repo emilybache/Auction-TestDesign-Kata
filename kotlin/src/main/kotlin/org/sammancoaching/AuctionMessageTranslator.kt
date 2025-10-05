@@ -10,7 +10,8 @@ class AuctionMessageTranslator(val listener: AuctionEventListener) {
             val data = HashMap<String, String>()
             for (element in message.split(";")) {
                 val pair = element.split(":")
-                data[pair[0].trim()] = pair[1].trim()
+                if (pair.size == 2)
+                    data[pair[0].trim()] = pair[1].trim()
             }
             val currentPrice = data.get("CurrentPrice")!!.toInt()
             val increment = data.get("Increment")!!.toInt()
